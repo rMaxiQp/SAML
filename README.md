@@ -52,7 +52,7 @@ The IdP will be available at <http://localhost:7000>.
 ### 4. Start the Service Provider (terminal 2)
 
 ```bash
-yarn dev
+yarn sp
 ```
 
 The SP will be available at <http://localhost:3000>.
@@ -68,7 +68,7 @@ displays the received SAML attributes.
 | Script | Description |
 |---|---|
 | `yarn cert` | Generate self-signed SP and IdP certificates |
-| `yarn dev` | Run the SP with `ts-node` (no build step) |
+| `yarn sp` | Run the SP with `ts-node` (no build step) |
 | `yarn idp` | Start the `saml-idp` dev Identity Provider |
 | `yarn build` | Compile TypeScript to `dist/` |
 | `yarn start` | Run the compiled SP from `dist/` |
