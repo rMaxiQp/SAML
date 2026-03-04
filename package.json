@@ -1,24 +1,15 @@
 {
-  "name": "saml-experiment",
+  "name": "SAML",
   "version": "1.0.0",
   "description": "TypeScript project to experiment with SAML 2.0",
   "main": "dist/sp/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/sp/index.js",
-    "dev": "ts-node src/sp/index.ts",
+    "start": "yarn build && node dist/sp/index.js",
+    "sp": "ts-node src/sp/index.ts",
     "idp": "ts-node src/idp/index.ts",
     "cert": "ts-node src/scripts/generate-certs.ts",
-    "lint": "eslint 'src/**/*.ts'",
-    "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "saml",
-    "saml2",
-    "passport",
-    "typescript"
-  ],
-  "license": "MIT",
   "dependencies": {
     "@node-saml/passport-saml": "^5.1.0",
     "express": "^5.2.1",

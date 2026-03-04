@@ -19,7 +19,7 @@ function generate(name: string): void {
 
   execSync(
     `openssl req -x509 -newkey rsa:2048 -keyout ${keyFile} -out ${certFile}` +
-      ` -days 365 -nodes -subj "/CN=${name}"`,
+      ` -days 365 -nodes -subj "/C=US/ST=California/L=San Francisco/O=JankyCo/OU=IT/CN=${name}"`,
     { stdio: "inherit" }
   );
 

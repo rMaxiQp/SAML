@@ -7,7 +7,7 @@ import rateLimit from "express-rate-limit";
 import {
   Strategy as SamlStrategy,
   SamlConfig,
-  VerifyWithRequest,
+  VerifyWithoutRequest,
 } from "@node-saml/passport-saml";
 
 // ---------------------------------------------------------------------------
@@ -17,7 +17,6 @@ import {
 const SP_PORT = parseInt(process.env.SP_PORT ?? "3000", 10);
 const IDP_SSO_URL =
   process.env.IDP_SSO_URL ?? "http://localhost:7000/saml/sso";
-const IDP_ISSUER = process.env.IDP_ISSUER ?? "urn:example:idp";
 const SP_ISSUER = process.env.SP_ISSUER ?? "urn:example:sp";
 const SP_CALLBACK_URL =
   process.env.SP_CALLBACK_URL ?? `http://localhost:${SP_PORT}/login/callback`;
@@ -61,8 +60,7 @@ const samlConfig: SamlConfig = {
   wantAssertionsSigned: true,
 };
 
-const signonVerify: VerifyWithRequest = (
-  _req,
+const signonVerify: VerifyWithoutRequest = (
   profile,
   done
 ) => {
@@ -78,8 +76,7 @@ const signonVerify: VerifyWithRequest = (
   return done(null, user);
 };
 
-const logoutVerify: VerifyWithRequest = (
-  _req,
+const logoutVerify: VerifyWithoutRequest = (
   profile,
   done
 ) => {
